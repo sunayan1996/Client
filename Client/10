@@ -1,0 +1,49 @@
+wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
+heroku --version
+cd Desktop/
+cd annapurna
+cd ..
+pip install virtualenv
+pip install --upgrade pip
+virtualenv venv
+source venv/bin/activate
+cd annapurna
+pip install -r requirements.txt 
+python manage.py makemigrations
+heroku local web
+python manage.py makemigrations
+python manage.py migrate
+cd annapurna/
+cd static/
+vim .test
+cd ..
+heroku create
+git remote rm heroku
+heroku git:remote -a annapurnaclient
+git init
+git add .
+git commit -m 'as'
+git push heroku master
+heroku git:remote -a annapurnaclient
+git add .
+git commit -m 'as'
+git push heroku master
+git init
+heroku git:remote -a annapurnaclient
+git add .
+git commit -m 'as'
+git push heroku master
+git init
+heroku git:remote -a annapurnaclient
+git add .
+git commit -m 'as'\
+git commit -m 'as'
+git push heroku master
+git init
+heroku git:remote -a annapurnaclient
+git add .
+git commit -m 'as'
+git push heroku master
+heroku ps:scale web=0
+cmd history 10
+history -a 10

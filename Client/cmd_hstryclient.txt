@@ -1,0 +1,51 @@
+ 1036  wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
+ 1037  heroku --version
+ 1038  cd Desktop/
+ 1039  cd annapurna
+ 1040  cd ..
+ 1041  pip install virtualenv
+ 1042  pip install --upgrade pip
+ 1043  virtualenv venv
+ 1044  source venv/bin/activate
+ 1045  cd annapurna
+ 1046  pip install -r requirements.txt 
+ 1047  python manage.py makemigrations
+ 1048  heroku local web
+ 1049  python manage.py makemigrations
+ 1050  python manage.py migrate
+ 1051  cd annapurna/
+ 1052  cd static/
+ 1053  vim .test
+ 1054  cd ..
+ 1055  heroku create
+ 1056  git remote rm heroku
+ 1057  heroku git:remote -a annapurnaclient
+ 1058  git init
+ 1059  git add .
+ 1060  git commit -m 'as'
+ 1061  git push heroku master
+ 1062  heroku git:remote -a annapurnaclient
+ 1063  git add .
+ 1064  git commit -m 'as'
+ 1065  git push heroku master
+ 1066  git init
+ 1067  heroku git:remote -a annapurnaclient
+ 1068  git add .
+ 1069  git commit -m 'as'
+ 1070  git push heroku master
+ 1071  git init
+ 1072  heroku git:remote -a annapurnaclient
+ 1073  git add .
+ 1074  git commit -m 'as'\
+ 1075  git commit -m 'as'
+ 1076  git push heroku master
+ 1077  git init
+ 1078  heroku git:remote -a annapurnaclient
+ 1079  git add .
+ 1080  git commit -m 'as'
+ 1081  git push heroku master
+ 1082  heroku ps:scale web=0
+ 1083  cmd history 10
+ 1084  history -a 10
+ 1085  history 10
+ 1086  history 150 > cmd_hstryclient.txt

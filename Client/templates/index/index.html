@@ -1,0 +1,46 @@
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+	function getfarmersdetails(){
+		console.log('send request');
+		$.ajax({
+//    url : "http://10.0.3.23:8028/restapi/farmerdetail/",
+    url : "http://127.0.0.1:8000/restapi/farmerdetail/",
+    type: "POST",
+	dataType: 'json',
+    data : { 'username' : 'Rohit', "csrfmiddlewaretoken": '{{ csrf_token }}' },
+    success: function(data)
+    {
+        //data - response from server
+		console.log(data);
+		$('#request').html(data.farmer_detail);
+    }
+});	
+	}
+	
+	function getlandlorddetails(){
+		console.log('send request');
+		$.ajax({
+//    url : "http://10.0.3.23:8028/restapi/landlorddetail/",
+    url : "http://127.0.0.1:8000/restapi/landlorddetail/",
+    type: "POST",
+	dataType: 'json',
+    data : { 'username' : 'Vineeth', "csrfmiddlewaretoken": '{{ csrf_token }}' },
+    success: function(data)
+    {
+        //data - response from server
+		console.log(data);
+		$('#request').html(data.landlord_detail);
+    }
+});	
+	}
+	
+</script>
+<h1>Famer Data in JSON format</h1>
+
+<button onclick="getfarmersdetails()">Famer's data</button>
+
+<h1>Landlord Data in JSON format</h1>
+
+<button onclick="getlandlorddetails()">Landlord's data</button>
+<div id='request'></div>

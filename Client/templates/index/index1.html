@@ -1,0 +1,68 @@
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var t = null;
+	function getfarmsdetails(){
+        
+		console.log('send request');
+		$.ajax({
+//    url : "http://10.0.3.23:8028/restapi/farmerdetail/",
+    url : "http://10.0.3.23:6028/mapsapp/farmsdetail/",
+    type: "POST",
+	dataType: 'json',
+    data : { 'username' : 'Avenash', "csrfmiddlewaretoken": '{{ csrf_token }}' },
+    success: function(data)
+    {
+        //data - response from server
+		console.log(data);
+        $('#request').html(data.farms_detail);
+        var t=JSON.parse(data);
+    }
+});
+	}
+	
+	function gethouseholddetails(){
+		console.log('send request');
+		$.ajax({
+//    url : "http://10.0.3.23:8028/restapi/landlorddetail/",
+    url : "http://10.0.3.23:8028/mapsapp/householddetail/",
+    type: "POST",
+	dataType: 'json',
+    data : { 'username' : 'Ambuj', "csrfmiddlewaretoken": '{{ csrf_token }}' },
+    success: function(data)
+    {
+        //data - response from server
+		console.log(data);
+		$('#request').html(data.household_detail);
+    }
+});	
+	}
+
+    function getwelldetails(){
+		console.log('send request');
+		$.ajax({
+//    url : "http://10.0.3.23:8028/restapi/landlorddetail/",
+    url : "http://10.0.3.23:8028/mapsapp/welldetail/",
+    type: "POST",
+	dataType: 'json',
+    data : { 'username' : 'Ambuj', "csrfmiddlewaretoken": '{{ csrf_token }}' },
+    success: function(data)
+    {
+        //data - response from server
+		console.log(data);
+		$('#request').html(data.well_detail);
+    }
+});	
+	}
+	
+</script>
+<h1>Farms Data in JSON format</h1>
+<button onclick="getfarmsdetails()">Farm's data</button>
+
+<h1>Household Data in JSON format</h1>
+<button onclick="gethouseholddetails()">Household's data</button>
+
+<h1>Well Data in JSON format</h1>
+<button onclick="getwelldetails()">Well's data</button>
+
+<div id='request'></div>
